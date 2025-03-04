@@ -24,7 +24,7 @@ markdown-vectorizer/
     └── input/     # Where you place your markdown files
 ~~~
 
-## Get it from Github
+## Get it from Docker Hub
 ~~~bash
 docker pull mingzilla/md-vectorizer:v1.0
 ~~~
