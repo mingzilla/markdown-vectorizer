@@ -24,6 +24,12 @@ markdown-vectorizer/
     └── input/     # Where you place your markdown files
 ~~~
 
+## Get it from Github
+~~~bash
+docker pull mingzilla/md-vectorizer:v1.0
+~~~
+
+
 ## Scripts
 
 | Script             | Purpose                                     |
