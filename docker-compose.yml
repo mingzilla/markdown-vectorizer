@@ -1,0 +1,11 @@
+services:
+  md-vectorizer:
+    build:
+      context: .
+    volumes:
+      - ./volumes/input:/volumes/input
+      - ./volumes/index:/volumes/index
+      - ./volumes/models:/volumes/models  # New volume for model cache
+    network_mode: host
+    container_name: md-vectorizer
+    restart: unless-stopped
