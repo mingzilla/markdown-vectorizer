@@ -25,6 +25,18 @@ class MarkdownVectorizer:
     """Main class to handle vectorization of markdown files."""
 
     @staticmethod
+    def ensure_nltk_resources():
+        """
+        Ensure that necessary NLTK resources are downloaded.
+        """
+        try:
+            import nltk
+            nltk.download('punkt', quiet=True)
+            logger.info("NLTK resources checked")
+        except Exception as e:
+            logger.warning(f"Error checking NLTK resources: {str(e)}")
+
+    @staticmethod
     def setup_embedding_model():
         """
         Set up the embedding model.
@@ -94,6 +106,9 @@ class MarkdownVectorizer:
         """
         logger.info(f"Starting to process markdown files from {input_dir}")
 
+        # Ensure NLTK resources are available
+        MarkdownVectorizer.ensure_nltk_resources()
+
         # Read configuration from environment variables
         chunk_size = int(os.environ.get("CHUNK_SIZE", 512))
         chunk_overlap = int(os.environ.get("CHUNK_OVERLAP", 50))
@@ -157,6 +172,9 @@ class MarkdownVectorizer:
             List of dictionaries containing relevant document info
         """
         try:
+            # Ensure NLTK resources are available (needed for potential similarity calcs)
+            MarkdownVectorizer.ensure_nltk_resources()
+
             # Set up embedding model
             embed_model = MarkdownVectorizer.setup_embedding_model()
 

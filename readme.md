@@ -26,7 +26,7 @@ markdown-vectorizer/
 
 ## Get it from Docker Hub
 ~~~bash
-docker pull mingzilla/md-vectorizer:v1.1
+docker pull mingzilla/md-vectorizer:v1.2
 ~~~
 
 

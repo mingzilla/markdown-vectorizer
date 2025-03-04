@@ -16,7 +16,7 @@ fi
 echo "Publishing md-vectorizer to Docker Hub..."
 
 # Tag the image
-docker tag md-vectorizer mingzilla/md-vectorizer:v1.1
+docker tag md-vectorizer mingzilla/md-vectorizer:v1.2
 
 # Check if user is logged in to Docker Hub
 if ! docker info | grep -q "Username"; then
@@ -26,8 +26,8 @@ if ! docker info | grep -q "Username"; then
 fi
 
 # Push to Docker Hub
-echo "Pushing to Docker Hub as mingzilla/md-vectorizer:v1.1..."
-docker push mingzilla/md-vectorizer:v1.1
+echo "Pushing to Docker Hub as mingzilla/md-vectorizer:v1.2..."
+docker push mingzilla/md-vectorizer:v1.2
 
 echo "Publication complete!"
-echo "Image is now available at: mingzilla/md-vectorizer:v1.1"
+echo "Image is now available at: mingzilla/md-vectorizer:v1.2"

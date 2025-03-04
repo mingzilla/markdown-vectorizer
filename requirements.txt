@@ -6,3 +6,4 @@ sentence-transformers==2.2.2
 chromadb==0.4.22
 markdown==3.5.1
 flask==2.3.3
+nltk==3.8.1

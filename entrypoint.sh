@@ -5,6 +5,14 @@ echo "Container starting..."
 echo "Setting environment variable for Flask..."
 export FLASK_APP=api.py
 
+# Make sure NLTK resources are available
+echo "Checking NLTK resources..."
+python -c "
+import nltk
+nltk.download('punkt', quiet=True)
+print('NLTK resources checked')
+"
+
 # Run a test to ensure all imports work
 echo "Testing imports..."
 python -c "

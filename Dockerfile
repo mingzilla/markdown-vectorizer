@@ -19,6 +19,9 @@ RUN pip install --no-cache-dir langchain==0.0.266
 RUN pip install --no-cache-dir llama-index==0.8.4
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Download NLTK resources
+RUN python -c "import nltk; nltk.download('punkt')"
+
 # Copy application code
 COPY vectorizer.py .
 COPY utils.py .
