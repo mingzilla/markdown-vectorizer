@@ -2,10 +2,14 @@ services:
   md-vectorizer:
     build:
       context: .
+    image: md-vectorizer
     volumes:
       - ./volumes/input:/volumes/input
       - ./volumes/index:/volumes/index
-      - ./volumes/models:/volumes/models  # New volume for model cache
+      - ./volumes/models:/volumes/models  # Volume for model cache
+    environment:
+      - CHUNK_SIZE=${CHUNK_SIZE:-512}
+      - CHUNK_OVERLAP=${CHUNK_OVERLAP:-50}
     network_mode: host
     container_name: md-vectorizer
     restart: unless-stopped

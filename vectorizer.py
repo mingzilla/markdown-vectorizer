@@ -94,6 +94,11 @@ class MarkdownVectorizer:
         """
         logger.info(f"Starting to process markdown files from {input_dir}")
 
+        # Read configuration from environment variables
+        chunk_size = int(os.environ.get("CHUNK_SIZE", 512))
+        chunk_overlap = int(os.environ.get("CHUNK_OVERLAP", 50))
+        logger.info(f"Using chunk size: {chunk_size}, chunk overlap: {chunk_overlap}")
+
         # Set up embedding model
         embed_model = MarkdownVectorizer.setup_embedding_model()
 
@@ -125,7 +130,7 @@ class MarkdownVectorizer:
         storage_context = StorageContext.from_defaults(vector_store=vector_store)
 
         # Define text splitter for chunking
-        text_splitter = TokenTextSplitter(chunk_size=512, chunk_overlap=50)
+        text_splitter = TokenTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
 
         # Create vector store index - use service_context to avoid LLM initialization
         index = VectorStoreIndex.from_documents(

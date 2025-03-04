@@ -1,7 +1,8 @@
 #!/bin/bash
 
 echo "Building md-vectorizer Docker image..."
-# Using --no-cache to ensure fresh dependencies
-docker-compose build
+# Build with explicit image name to ensure consistency
+docker build -t md-vectorizer .
 
 echo "Build complete!"
+echo "Image name: md-vectorizer"
